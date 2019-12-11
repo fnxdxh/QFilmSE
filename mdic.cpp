@@ -1,6 +1,6 @@
-#include "dic.h"
+#include "mdic.h"
 
-Dic::Dic(std::string dicpath)
+MDic::MDic(std::string dicpath)
 {
     std::ifstream fin;
     fin.open(dicpath);
@@ -18,17 +18,17 @@ Dic::Dic(std::string dicpath)
     }
 }
 
-bool Dic::find(std::string entry)
+bool MDic::find(std::string entry)
 {
     return m_dic.count(entry);
 }
 
-int Dic::size()
+int MDic::size()
 {
     return static_cast<int>(m_dic.size());
 }
 
-void Dic::print()
+void MDic::print()
 {
     std::unordered_map<std::string, int>::iterator it;
     it = m_dic.begin();

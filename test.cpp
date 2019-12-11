@@ -182,14 +182,14 @@ void testParser()
     assert(parser.getInfo());
     assert(parser.getSummary());
     assert(parser.outputFilmInfo("./output/19.info"));
-    Dic dic("./dic/dic");
+    MDic dic("./dic/dic");
     parser.wordSegmentation(dic);
     assert(parser.outputWordSeg("./output/19.txt"));
 }
 
 void testDic()
 {
-    Dic dic("./dic/dic");
+    MDic dic("./dic/dic");
     assert(dic.size() == 275909);
     assert(dic.find("龟年鹤寿"));
 }

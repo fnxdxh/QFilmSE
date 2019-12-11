@@ -10,7 +10,9 @@
 #include "mstack.h"
 #include "mcharstring.h"
 #include "mcharstringlink.h"
-#include "dic.h"
+#include "mdic.h"
+#include "mAVLTree.h"
+#include "mdoclist.h"
 
 #define WORD_MAX_LENGTH 18
 
@@ -31,7 +33,8 @@ public:
 
     void start();
 
-    void wordSegmentation(Dic& dic);
+    void wordSegmentation(MDic& dic);
+    void toInvertedFile(MAVLTree<MCharString>& tree, int docID);
 
     bool outputFilmInfo(std::string filepath);
     bool outputWordSeg(std::string filepath);

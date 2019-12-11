@@ -15,11 +15,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    dic.cpp \
     files.cpp \
     main.cpp \
     mcharstring.cpp \
     mcharstringlink.cpp \
+    mdic.cpp \
+    mdoclist.cpp \
+    mengine.cpp \
     parser.cpp \
     test.cpp
 
@@ -29,10 +31,13 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
-    dic.h \
     files.h \
+    mAVLTree.h \
     mcharstring.h \
     mcharstringlink.h \
+    mdic.h \
+    mdoclist.h \
+    mengine.h \
     mstack.h \
     parser.h \
     test.h

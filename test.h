@@ -8,7 +8,7 @@
 #include "mcharstring.h"
 #include "mcharstringlink.h"
 #include "parser.h"
-#include "dic.h"
+#include "mdic.h"
 #include "files.h"
 
 void test();

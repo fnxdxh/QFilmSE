@@ -198,7 +198,7 @@ void Parser::start()
     getSummary();
 }
 
-void Parser::wordSegmentation(Dic &dic)
+void Parser::wordSegmentation(MDic &dic)
 {
     int summarylength = m_summary.length();
     int i = 0;
@@ -215,6 +215,15 @@ void Parser::wordSegmentation(Dic &dic)
                 break;
             }
         }
+    }
+}
+
+void Parser::toInvertedFile(MAVLTree<MCharString> &tree, int docID)
+{
+    for (int i = 0; i < m_wordlist.size(); i++) {
+        tree.insert(m_wordlist[i]);
+        MTreeNode<MCharString> *node = tree.find(m_wordlist[i]);
+        node->head->addinfo(docID);
     }
 }
 

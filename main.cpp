@@ -6,8 +6,10 @@
 #include "mcharstringlink.h"
 #include "mstack.h"
 #include "parser.h"
-#include "dic.h"
+#include "mdic.h"
 #include "files.h"
+#include "mAVLTree.h"
+#include "mdoclist.h"
 #include "test.h"
 
 int main(int argc, char *argv[])
@@ -23,7 +25,10 @@ int main(int argc, char *argv[])
 
     //载入词典
     std::cout << "加载词典..." << std::endl;
-    Dic dic("./dic/dic");
+    MDic dic("./dic/dic");
+
+    //建立二叉搜索树
+    MAVLTree<MCharString> tree;
 
     //载入文件
     std::cout << "读取文件..." << std::endl;
@@ -41,9 +46,16 @@ int main(int argc, char *argv[])
         Parser parser(inputfile);
         parser.start();
         parser.wordSegmentation(dic);
+        parser.toInvertedFile(tree, std::stoi(files.at(i)));
+
+        /* 这一部分是作业一的输出，作业二不再需要
         parser.outputFilmInfo(outputfile_1);
         parser.outputWordSeg(outputfile_2);
+        /////////////////////////////////////*/
+
     }
+
+    tree.traversal();
 
     std::cout << "完成！" << std::endl;
     system("pause");
