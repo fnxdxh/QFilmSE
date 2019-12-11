@@ -7,7 +7,7 @@
 #include <iostream>
 #include <assert.h>
 
-class Files
+class MFiles
 {
 private:
     std::vector<std::string> m_files;
@@ -15,7 +15,7 @@ private:
     int m_length;
 
 public:
-    Files(std::string path);
+    MFiles(std::string path);
     int length();
     int size();
     std::string at(int index);

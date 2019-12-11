@@ -1,6 +1,6 @@
-#include "parser.h"
+#include "mparser.h"
 
-Parser::Parser(std::string filepath)
+MParser::MParser(std::string filepath)
 {
     std::ifstream fin;
     fin.open(filepath);
@@ -11,7 +11,7 @@ Parser::Parser(std::string filepath)
     m_buffer.init(buffer);
 }
 
-bool Parser::getTitle()
+bool MParser::getTitle()
 {
     MCharString target("<title>");
     int index = m_buffer.indexof(target);
@@ -60,7 +60,7 @@ bool Parser::getTitle()
     return false;
 }
 
-bool Parser::getInfo()
+bool MParser::getInfo()
 {
     MCharString target("<div id=\"info\">");
     int index = m_buffer.indexof(target);
@@ -105,7 +105,7 @@ bool Parser::getInfo()
     return false;
 }
 
-bool Parser::getSummary()
+bool MParser::getSummary()
 {
     MCharString target1("<span class=\"all hidden\">");
     MCharString target2("<span property=\"v:summary\"");
@@ -191,14 +191,14 @@ bool Parser::getSummary()
     return false;
 }
 
-void Parser::start()
+void MParser::start()
 {
     getTitle();
     getInfo();
     getSummary();
 }
 
-void Parser::wordSegmentation(MDic &dic)
+void MParser::wordSegmentation(MDic &dic)
 {
     int summarylength = m_summary.length();
     int i = 0;
@@ -218,7 +218,7 @@ void Parser::wordSegmentation(MDic &dic)
     }
 }
 
-void Parser::toInvertedFile(MAVLTree<MCharString> &tree, int docID)
+void MParser::toInvertedFile(MAVLTree<MCharString> &tree, int docID)
 {
     for (int i = 0; i < m_wordlist.size(); i++) {
         tree.insert(m_wordlist[i]);
@@ -227,7 +227,7 @@ void Parser::toInvertedFile(MAVLTree<MCharString> &tree, int docID)
     }
 }
 
-bool Parser::outputFilmInfo(std::string filepath)
+bool MParser::outputFilmInfo(std::string filepath)
 {
     std::ofstream fout;
     fout.open(filepath);
@@ -252,7 +252,7 @@ bool Parser::outputFilmInfo(std::string filepath)
     return false;
 }
 
-bool Parser::outputWordSeg(std::string filepath)
+bool MParser::outputWordSeg(std::string filepath)
 {
     std::ofstream fout;
     fout.open(filepath);
@@ -272,22 +272,22 @@ bool Parser::outputWordSeg(std::string filepath)
     return false;
 }
 
-void Parser::printbuffer()
+void MParser::printbuffer()
 {
     m_buffer.print();
 }
 
-void Parser::printtitle()
+void MParser::printtitle()
 {
     m_title.print();
 }
 
-void Parser::printinfo()
+void MParser::printinfo()
 {
     m_info.print();
 }
 
-void Parser::printsummary()
+void MParser::printsummary()
 {
     m_summary.print();
 }

@@ -5,9 +5,9 @@
 #include "mcharstring.h"
 #include "mcharstringlink.h"
 #include "mstack.h"
-#include "parser.h"
+#include "mparser.h"
 #include "mdic.h"
-#include "files.h"
+#include "mfiles.h"
 #include "mAVLTree.h"
 #include "mdoclist.h"
 #include "test.h"
@@ -32,7 +32,7 @@ int main(int argc, char *argv[])
 
     //载入文件
     std::cout << "读取文件..." << std::endl;
-    Files files("./input/");
+    MFiles files("./input/");
     int filenum = files.size();
 
     std::cout << "网页解析..." << std::endl;
@@ -43,7 +43,7 @@ int main(int argc, char *argv[])
         inputfile.append(files.at(i).append(".html"));
         outputfile_1.append(files.at(i).append(".info"));
         outputfile_2.append(files.at(i).append(".txt"));
-        Parser parser(inputfile);
+        MParser parser(inputfile);
         parser.start();
         parser.wordSegmentation(dic);
         parser.toInvertedFile(tree, std::stoi(files.at(i)));

@@ -175,7 +175,7 @@ void testParser()
 {
     //测试构造函数
     std::string filepath = "./input/19.html";
-    Parser parser(filepath);
+    MParser parser(filepath);
 
     //测试getTitle()
     assert(parser.getTitle());
@@ -195,7 +195,7 @@ void testDic()
 }
 void testFiles()
 {
-    Files files("./input/");
+    MFiles files("./input/");
     //files.print();
 
 }

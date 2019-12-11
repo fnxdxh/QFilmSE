@@ -1,6 +1,6 @@
-#include "files.h"
+#include "mfiles.h"
 
-Files::Files(std::string path)
+MFiles::MFiles(std::string path)
 {
     long long hFile = 0; //文件句柄
     struct _finddata_t fileinfo;
@@ -22,23 +22,23 @@ Files::Files(std::string path)
     m_length = m_files.size();
 }
 
-int Files::length()
+int MFiles::length()
 {
     return m_length;
 }
 
-int Files::size()
+int MFiles::size()
 {
     return m_length;
 }
 
-std::string Files::at(int index)
+std::string MFiles::at(int index)
 {
     assert(index >= 0 && index < m_length);
     return m_filenames[index];
 }
 
-void Files::print()
+void MFiles::print()
 {
     std::cout << m_files.size() << std::endl;
     for (int i = 0; i < static_cast<int>(m_files.size()); i++) {

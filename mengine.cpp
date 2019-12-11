@@ -1,6 +1,6 @@
 #include "mengine.h"
 
-MEngine::MEngine()
+MEngine::MEngine(MAVLTree<MCharString> *tree)
 {
-
+    m_tree = tree;
 }

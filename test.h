@@ -7,9 +7,9 @@
 #include "mstack.h"
 #include "mcharstring.h"
 #include "mcharstringlink.h"
-#include "parser.h"
+#include "mparser.h"
 #include "mdic.h"
-#include "files.h"
+#include "mfiles.h"
 
 void test();
 

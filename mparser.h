@@ -16,7 +16,7 @@
 
 #define WORD_MAX_LENGTH 18
 
-class Parser
+class MParser
 {
 private:
     MCharString m_buffer;
@@ -26,7 +26,7 @@ private:
     std::vector<MCharString> m_wordlist;
 
 public:
-    Parser(std::string filepath);
+    MParser(std::string filepath);
     bool getTitle();
     bool getInfo();
     bool getSummary();
