@@ -248,6 +248,36 @@ std::string MCharString::toSTLstring()
     return cstring;
 }
 
+MCharString *MCharString::split(char ch, int &listlength)
+{
+    //先数有多少个待分割位置并记录
+    int num = 0;
+    for (int i = 0; i < m_length; i++) {
+        if (m_string[i] == ch) {
+            num++;
+        }
+    }
+    int *pos = new int[num + 2];
+    pos[0] = -1;
+    pos[num + 1] = m_length;
+    for (int i = 0, j = 1; i < m_length; i++) {
+        if (m_string[i] == ch) {
+            pos[j] = i;
+            j++;
+        }
+    }
+    //申请空间
+    MCharString *result = new MCharString[num + 1];
+    for (int i = 0; i < num + 1; i++) {
+        result[i] = this->substringBypos(pos[i]+1, pos[i+1]-1);
+    }
+
+    //回收空间并返回
+    delete [] pos;
+    listlength = num + 1;
+    return result;
+}
+
 void MCharString::print()
 {
     for (int i = 0; i < m_length; i++) {

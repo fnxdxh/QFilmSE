@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include <cstring>
+#include <cstdlib>
 
 class MCharString
 {
@@ -34,6 +35,7 @@ public:
     void assign(MCharString charstring);    //与重载=运算符不同，assign重新申请一块空间
     void clear();
     std::string toSTLstring();
+    MCharString *split(char ch, int &listlength);    //根据输入的字符分割成字符串数组
     void print();   //打印
 
     //重载运算符

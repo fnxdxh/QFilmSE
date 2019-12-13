@@ -1,5 +1,5 @@
-#ifndef FILES_H
-#define FILES_H
+#ifndef MFILES_H
+#define MFILES_H
 
 #include <string>
 #include <vector>
@@ -22,4 +22,4 @@ public:
     void print();
 };
 
-#endif // FILES_H
+#endif // MFILES_H

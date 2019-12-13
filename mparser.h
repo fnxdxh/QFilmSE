@@ -1,5 +1,5 @@
-#ifndef PARSER_H
-#define PARSER_H
+#ifndef MPARSER_H
+#define MPARSER_H
 
 #include <fstream>
 #include <iostream>
@@ -45,4 +45,4 @@ public:
     void printsummary();
 };
 
-#endif // PARSER_H
+#endif // MPARSER_H

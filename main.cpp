@@ -10,7 +10,7 @@
 #include "mfiles.h"
 #include "mAVLTree.h"
 #include "mdoclist.h"
-#include "test.h"
+#include "mengine.h"
 
 int main(int argc, char *argv[])
 {
@@ -55,7 +55,13 @@ int main(int argc, char *argv[])
 
     }
 
-    tree.traversal();
+    std::cout << "网页解析完成" << std::endl;
+    std::cout << "建立倒排文档..." << std::endl;
+    MEngine engine(&tree);
+    std::cout << "倒排文档完成" << std::endl;
+    std::cout << "检索中..." << std::endl;
+    engine.engineSearch();
+
 
     std::cout << "完成！" << std::endl;
     system("pause");
